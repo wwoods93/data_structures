@@ -3,30 +3,52 @@
  */
 
 #include <iostream>
-#include "SinglyLinkedList.hpp"
 
-SinglyLinkedList::SinglyLinkedList()
+template <class T>
+class SinglyLinkedList
+{
+    private:
+        struct Node
+        {
+            T data;
+            Node *next;
+        };
+
+        Node *head;
+        Node *tail;
+
+    public:
+        SinglyLinkedList();
+        ~SinglyLinkedList();
+        void insertNode(T newData);
+        T removeFirstNode();
+        void print();
+};
+
+template <class T>
+SinglyLinkedList<T>::SinglyLinkedList()
 {
     head = NULL;
     tail = NULL;
 }
-
-SinglyLinkedList::~SinglyLinkedList()
+template <class T>
+SinglyLinkedList<T>::~SinglyLinkedList()
 {
     Node *nodePtr;
     Node *nextNode;
     nodePtr = head;
-    std::cout << "Destroying all nodes...\n";
+    std::cout << "Destroying all nodes\n";
     while (nodePtr != nullptr)
     {
         nextNode = nodePtr->next;
         delete nodePtr;
         nodePtr = nextNode;
     }
-    std::cout << "All nodes destroyed.\n";
+    std::cout << "All nodes destroyed\n";
 }
 
-void SinglyLinkedList::insertNode(int newData)
+template <class T>
+void SinglyLinkedList<T>::insertNode(T newData)
 {
     Node *tmp = new Node;
     tmp->data = newData;
@@ -44,9 +66,10 @@ void SinglyLinkedList::insertNode(int newData)
     }
 }
 
-int SinglyLinkedList::removeFirstNode()
+template <class T>
+T SinglyLinkedList<T>::removeFirstNode()
 {
-    int removeThis;
+    T removeThis;
     if (!head)
         return 0;
     Node *nodePtr;
@@ -57,7 +80,8 @@ int SinglyLinkedList::removeFirstNode()
     return removeThis;
 }
 
-void SinglyLinkedList::print()
+template <class T>
+void SinglyLinkedList<T>::print()
 {
     Node *nodePtr;
     nodePtr = head;
@@ -67,5 +91,5 @@ void SinglyLinkedList::print()
         std::cout << nodePtr->data << ' ';
         nodePtr = nodePtr->next;
     }
-    std::cout << '\n';
+    std::cout << std::endl;
 }

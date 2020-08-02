@@ -2,11 +2,12 @@
  *  main.cpp
  */
 
-#include "SinglyLinkedList.hpp"
+#include <iostream>
+#include "SinglyLinkedList.cpp"
 
 int main()
 {
-    SinglyLinkedList a;
+    SinglyLinkedList<int> a;
     a.insertNode(1);
     a.insertNode(2);
     a.print();
