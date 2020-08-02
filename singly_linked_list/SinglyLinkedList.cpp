@@ -1,27 +1,17 @@
 /**
  *  SinglyLinkedList.cpp
- * 
  */
 
 #include <iostream>
+#include "SinglyLinkedList.hpp"
 
-class SinglyLinkedList
-{
-    private:
-        struct Node
-        {
-            int data;
-            Node *next;
-        };
-        Node *head;
-        Node *tail;
-    public:
-        SinglyLinkedList()
+
+        SinglyLinkedList::SinglyLinkedList()
         {
             head = NULL;
             tail = NULL;
         }
-        ~SinglyLinkedList()
+        SinglyLinkedList::~SinglyLinkedList()
         {
             Node *nodePtr;
             Node *nextNode;
@@ -35,7 +25,7 @@ class SinglyLinkedList
             }
             std::cout << "All nodes destroyed.\n";
         }
-        void insertNode(int newData)
+        void SinglyLinkedList::insertNode(int newData)
         {
             Node *tmp = new Node;
             tmp->data = newData;
@@ -52,7 +42,7 @@ class SinglyLinkedList
                 tail = tail->next;
             }
         }
-        int removeFirstNode()
+        int SinglyLinkedList::removeFirstNode()
         {
             int removeThis;
             if (!head)
@@ -64,7 +54,7 @@ class SinglyLinkedList
             head = nodePtr;
             return removeThis;
         }
-        void print()
+        void SinglyLinkedList::print()
         {
             Node *nodePtr;
             nodePtr = head;
@@ -76,7 +66,6 @@ class SinglyLinkedList
             }
             std::cout << '\n';
         }
-};
 
 int main()
 {
