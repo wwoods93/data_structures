@@ -12,8 +12,10 @@ class SinglyLinkedList
             int data;
             Node *next;
         };
+
         Node *head;
         Node *tail;
+
     public:
         SinglyLinkedList();
         ~SinglyLinkedList();
