@@ -4,7 +4,6 @@
 
 #include <iostream>
 
-
 template <class T>
 class Stack
 {
@@ -77,7 +76,6 @@ bool Stack<T>::isEmpty()
 
 int main()
 {
-    int catchVar;
     Stack<char> charStack(5);
     std::cout << "Stack is empty: " << charStack.isEmpty() << std::endl;
     charStack.push('a');
